@@ -25,5 +25,38 @@ router.post('/registration', async (req, res) => {
 });
 
 
+router.post('/login', async (req, res) => {
+    try {
+      // Does user already exist
+      const foundUser = await User.findOne({username: req.body.username});
+  
+      if(foundUser){
+        // if yes, compare passwords
+        if(bcrypt.compareSync(req.body.password, foundUser.password)){
+          req.session.message = '';
+          req.session.username = foundUser.username;
+          req.session.logged   = true;
+          console.log(req.session, req.body)
+  
+          res.redirect('/')
+        
+        // if user exist but password incorrect return to login
+        } else {
+          console.log('else in bcrypt compare')
+          req.session.message = 'Username or password are incorrect';
+          res.redirect('/')
+        }
+  
+      // if user does not exist return to login
+      } else {
+        req.session.message = 'Username or password are incorrect';
+        res.redirect('/')
+      }
+    } catch(err){
+      console.log('hitting', err)
+      res.send(err);
+    }
+});
+
 
 module.exports = router;

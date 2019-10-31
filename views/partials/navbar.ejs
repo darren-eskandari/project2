@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="css/style.css">
+
+<div class="nav">
+    <div class="nav-header">
+        <div class="nav-left">
+            <a href="/" class="nav-link">Home</a>
+        </div>
+        <div class="nav-center"></div>
+        <div class="nav-right">
+            <a href="/articles" class="nav-link">Articles</a>
+            <a href="/photos" class="nav-link">Photos</a>
+            <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+            </div>    
+        </div>
+    </div>
+    <div class="overlay">
+        <div class="overlay-content">
+            <a href="/articles" class="overlay-link">Articles</a>
+            <a href="/photos" class="overlay-link">Photos</a>
+        </div>
+    </div>
+    <script>
+        const hamburgerMenu = document.querySelector('.hamburger-menu')
+        const overlay = document.querySelector('.overlay')
+        hamburgerMenu.addEventListener('click', (e) => {
+            e.currentTarget.classList.toggle('open')
+            overlay.classList.toggle('show')
+        })
+    </script>
+
+</div>

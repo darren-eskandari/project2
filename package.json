@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/darren-eskandari/project2#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "method-override": "^3.0.0",

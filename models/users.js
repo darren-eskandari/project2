@@ -4,7 +4,6 @@ const userSchema = new mongoose.Schema({
     username: {type: String, required: true, unique: true},
     email: {type: String, required: true},
     password: {type: String, required: true},
-    // profilePic: String,
     firstName: String,
     lastName: String,
     dob: String,
@@ -18,7 +17,6 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Article',
     }],
-
 });
 
 const User = mongoose.model('User', userSchema);

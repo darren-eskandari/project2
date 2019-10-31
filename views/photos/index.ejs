@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <%- include('./partials/navbar.ejs') %>
+    <header>
+      <h1>Travel Blog</h1>
+      
+      <div>
+        <a href="/signup.ejs">sign up</a>
+        /
+        <a href="/login.ejs">login</a>
+      </div>
+    </header>
+
+    <main>
+        <section>
+            <% for(let i = 0; i < photos.length; i++){ %>
+                <div class="img">
+                    <a href="/photos/<%=photos[i]._id%>"><img src="<%=photos[i].img%>" /></a>
+                </div>
+            <% } %>
+        </section>
+   
+    </main>
+
+    <aside>
+      my photos
+    </aside>
+  </body>
+</html>

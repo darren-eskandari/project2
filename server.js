@@ -31,11 +31,11 @@ app.use('/articles', articlesController);
 app.use('/photos', photosController);
 
 app.get('/login', (req, res) => {
-    res.render('login.ejs')
+    res.render('login')
 });
   
 app.get('/signup', (req, res) => {
-    res.render('signup.ejs')
+    res.render('signup')
 });
 
 app.get('/',(req, res) => {

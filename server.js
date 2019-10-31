@@ -15,6 +15,11 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.use((req,res,next) => {
+    res.locals.user = req.session.user || {}
+    next()
+})
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.json());
@@ -25,8 +30,19 @@ app.use('/auth', usersController);
 app.use('/articles', articlesController);
 app.use('/photos', photosController);
 
+app.get('/login', (req, res) => {
+    res.render('login.ejs')
+});
+  
+app.get('/signup', (req, res) => {
+    res.render('signup.ejs')
+});
+
 app.get('/',(req, res) => {
-    res.render('index')
+    res.render('index', {
+        message: req.session.message,
+        logOut: req.session.logOutMsg,
+    });
 });
 
 app.listen(3000, () => {

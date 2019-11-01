@@ -16,7 +16,17 @@ router.get('/', async (req, res)=>{
     }
 });
      
-
-
+router.get('/new', async (req, res) => {
+    try {
+        console.log(req.session, req.body);
+        res.render('photos/new.ejs', {
+            isLogged: req.session.logged,
+        });
+    } catch(err) {
+        res.send(err);
+    }
+})
+    
+    // const user = await User.findById(req.body.usedID)
 
 module.exports = router;

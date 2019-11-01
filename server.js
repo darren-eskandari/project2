@@ -17,6 +17,8 @@ app.use(session({
 
 app.use((req,res,next) => {
     res.locals.user = req.session.user || {}
+    res.locals.username = req.session.username
+    res.locals.isLogged = req.session.logged,
     next()
 })
 
@@ -45,10 +47,8 @@ app.get('/signup', (req, res) => {
 
 app.get('/',(req, res) => {
     res.render('index', {
-        isLogged: req.session.logged,
         message: req.session.message,
         logOut: req.session.logOutMsg,
-        username: req.session.username,
     });
 });
 

@@ -12,11 +12,16 @@
     </header>
 
     <main>
-        Article Stuff
+        <form action="/articles" method="POST">
+          <input type="text" name="title" placeholder="Title"/><br><br>
+          <input type="text" name="location" placeholder="Location"/><br><br>
+          <textarea name="body"/></textarea><br>
+          <button type="submit">Create Article</button>
+        </form>
     </main>
 
     <aside>
-        my article
+        my articles
     </aside>
     </body>
 </html>

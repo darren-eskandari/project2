@@ -16,6 +16,7 @@ router.post('/registration', async (req, res) => {
         const createdUser = await User.create(userDbEntry);
         console.log(createdUser);
         req.session.username = createdUser.username;
+        req.session.userId = createdUser._id
         req.session.logged = true;
 
         res.redirect('/')
@@ -36,6 +37,7 @@ router.post('/login', async (req, res) => {
                 req.session.message = '';
                 req.session.username = foundUser.username;
                 req.session.logged   = true;
+                req.session.userId = foundUser._id
                 // console.log(req.session, req.body)
                 res.redirect('/');
             } else {

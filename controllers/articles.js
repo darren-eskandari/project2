@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Article  = require('../models/articles');
-const Author   = require('../models/users');
+const User   = require('../models/users');
 
 
 router.get('/', async (req, res)=>{
@@ -35,8 +35,9 @@ router.post('/', async (req, res) => {
         currentUser.articles.push(createdArticle);
         await currentUser.save()
         res.redirect('/articles');
-    } catch(er) {
-        res.send(err);
+    } catch(err) {
+        console.log(err)
+        // res.send(err);
     }
 });
 

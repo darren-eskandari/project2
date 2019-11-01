@@ -5,25 +5,24 @@
     <title></title>
   </head>
   <body>
-  <%- include('../partials/navbar.ejs') %>
+  <%- include('../partials/navbar.ejs', {
+    isLogged: isLogged
+  }) %>
     <header>
       <h1>Photos</h1>
-      
-      <div>
-        <a href="/signup">sign up</a>
-        /
-        <a href="/login">login</a>
-      </div>
+
     </header>
 
     <main>
-        <section>
-          <% for(let i = 0; i < photos.length; i++){ %>
-            <div class="img">
-              <a href="/photos/<%=photos[i]._id%>"><img src="<%=photos[i].img%>" /></a>
-            </div>
-          <% } %>
-        </section>
+
+
+      <section>
+        <% for(let i = 0; i < photos.length; i++){ %>
+          <div class="img">
+            <a href="/photos/<%=photos[i]._id%>"><img src="<%=photos[i].img%>" /></a>
+          </div>
+        <% } %>
+      </section>
    
     </main>
 

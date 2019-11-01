@@ -31,15 +31,21 @@ app.use('/articles', articlesController);
 app.use('/photos', photosController);
 
 app.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', {
+        isLogged: req.session.logged,
+    })
 });
   
 app.get('/signup', (req, res) => {
-    res.render('signup')
+    res.render('signup', {
+        errorMessage: '',
+        isLogged: req.session.logged,
+    })
 });
 
 app.get('/',(req, res) => {
     res.render('index', {
+        isLogged: req.session.logged,
         message: req.session.message,
         logOut: req.session.logOutMsg,
     });

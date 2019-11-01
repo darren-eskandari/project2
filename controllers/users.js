@@ -11,7 +11,7 @@ router.post('/registration', async (req, res) => {
     userDbEntry.username = req.body.username;
     userDbEntry.email    = req.body.email;
     userDbEntry.password = passwordHash;
-    
+    console.log(userDbEntry, 'this is user')
     try {  
         const createdUser = await User.create(userDbEntry);
         console.log(createdUser);
@@ -20,7 +20,11 @@ router.post('/registration', async (req, res) => {
 
         res.redirect('/')
     } catch(err) {
-        res.send(err)
+        req.session.message = ''
+        res.render('signup.ejs', {
+            errorMessage: 'Username already exists'
+        })
+        res.console.log(err)
     }
 });
 

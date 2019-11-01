@@ -1,4 +1,6 @@
-<%- include('./partials/navbar.ejs') %>
+<%- include('./partials/navbar.ejs', {
+    isLogged: isLogged
+  }) %>
 <h4>Login</h4>
 <form action="/auth/login" method="POST">
     <input type="text" name="username" placeholder="username">

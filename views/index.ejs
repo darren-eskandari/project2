@@ -5,15 +5,17 @@
     <title></title>
   </head>
   <body>
-  <%- include('./partials/navbar.ejs') %>
+  <%- include('./partials/navbar.ejs', {
+    isLogged: isLogged
+  }) %>
     <header>
       <h1>Travel Blog</h1>
       
-      <div>
+      <!-- <div>
         <a href="/signup">sign up</a>
         /
         <a href="/login">login</a>
-      </div>
+      </div> -->
 
 
       <%= message %>

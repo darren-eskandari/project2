@@ -3,17 +3,19 @@ const router = express.Router();
 const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
 
-router.get('/', (req, res)=>{
-    Photo.find({}, (err, foundPhotos)=>{
-        if(err){
-            res.send(err);
-        } else {
-            res.render('photos/index', {
-                photos: foundPhotos
-            });
-        }
-    });
+router.get('/', async (req, res)=>{
+    try {
+        const foundPhotos = await Photo.find({})
+        res.render('photos/index', {
+            photos: foundPhotos,
+            isLogged: req.session.logged
+        });
+    } catch(err) {
+        res.send(err);
+    }
 });
+     
+
 
 
 module.exports = router;

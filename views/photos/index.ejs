@@ -5,16 +5,15 @@
     <title></title>
   </head>
   <body>
-  <%- include('../partials/navbar.ejs', {
-    isLogged: isLogged
-  }) %>
+    <%- include('../partials/navbar.ejs', {
+      isLogged: isLogged
+    }) %>
     <header>
       <h1>Photos</h1>
 
     </header>
 
     <main>
-
 
       <section>
         <% for(let i = 0; i < photos.length; i++){ %>

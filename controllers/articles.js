@@ -9,7 +9,8 @@ router.get('/', async (req, res)=>{
         const foundArticles = await Article.find({})
         res.render('Articles/index', {
             articles: foundArticles,
-            isLogged: req.session.logged
+            isLogged: req.session.logged,
+            username: req.session.username,
         });
     } catch(err) {
         res.send(err);

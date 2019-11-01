@@ -44,10 +44,12 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/',(req, res) => {
+    console.log('username:',req.session.username)
     res.render('index', {
         isLogged: req.session.logged,
         message: req.session.message,
         logOut: req.session.logOutMsg,
+        username: req.session.username,
     });
 });
 

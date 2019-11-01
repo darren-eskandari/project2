@@ -8,7 +8,8 @@ router.get('/', async (req, res)=>{
         const foundPhotos = await Photo.find({})
         res.render('photos/index', {
             photos: foundPhotos,
-            isLogged: req.session.logged
+            isLogged: req.session.logged,
+            username: req.session.username,
         });
     } catch(err) {
         res.send(err);

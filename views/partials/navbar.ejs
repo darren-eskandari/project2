@@ -8,7 +8,7 @@
         <div class="nav-center"></div>
         <div class="nav-right">
                 <% if(isLogged) { %>
-                    <span>hello <%=user.username%></span>
+                    <span>hello <%=username%></span>
                     <a href="/auth/logout" class="nav-link">logout</a>
                   <% } else {%> 
                     <a href="/signup" class="nav-link">signup</a>

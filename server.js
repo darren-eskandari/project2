@@ -38,13 +38,12 @@ app.get('/login', (req, res) => {
   
 app.get('/signup', (req, res) => {
     res.render('signup', {
-        errorMessage: '',
+        message: req.session.message,
         isLogged: req.session.logged,
     })
 });
 
 app.get('/',(req, res) => {
-    console.log('username:',req.session.username)
     res.render('index', {
         isLogged: req.session.logged,
         message: req.session.message,

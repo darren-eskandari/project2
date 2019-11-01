@@ -20,10 +20,8 @@ router.post('/registration', async (req, res) => {
 
         res.redirect('/')
     } catch(err) {
-        req.session.message = ''
-        res.render('signup.ejs', {
-            errorMessage: 'Username already exists'
-        })
+        req.session.message = 'Username already in use. Please select another.';
+        res.redirect('/');
         res.console.log(err)
     }
 });
@@ -38,12 +36,12 @@ router.post('/login', async (req, res) => {
                 req.session.message = '';
                 req.session.username = foundUser.username;
                 req.session.logged   = true;
-                console.log(req.session, req.body)
-                res.redirect('/')
+                // console.log(req.session, req.body)
+                res.redirect('/');
             } else {
-                console.log('user found, password incorrect')
+                console.log('user found, password incorrect');
                 req.session.message = 'Username or password are incorrect';
-                res.redirect('/')
+                res.redirect('/');
             }
         } else {
             console.log('username not found')
@@ -63,7 +61,7 @@ router.get('/logout', (req, res) => {
         res.send(err);
       } else {
         res.redirect('/');
-        console.log('logged out')
+        // console.log('logged out')
       }
     });
 });

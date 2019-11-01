@@ -18,4 +18,26 @@ router.get('/', async (req, res)=>{
 });
 
 
+router.get('/new', async (req, res) => {
+    try {
+        console.log(req.session, req.body);
+        res.render('articles/new.ejs', {
+            isLogged: req.session.logged,
+        });
+    } catch(err) {
+        res.send(err);
+    }
+})
+router.post('/', async (req, res) => {
+    try {
+        const createdArticle = await Article.create(req.body);
+        const currentUser = await User.findById(req.session.userId);
+        currentUser.articles.push(createdArticle);
+        await currentUser.save()
+        res.redirect('/articles');
+    } catch(er) {
+        res.send(err);
+    }
+});
+
 module.exports = router;

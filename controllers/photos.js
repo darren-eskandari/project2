@@ -26,6 +26,18 @@ router.get('/new', async (req, res) => {
         res.send(err);
     }
 })
+router.post('/', async (req, res) => {
+    try {
+        const createdPhoto = await Photo.create(req.body);
+        const currentUser = await User.findById(req.session.userId);
+        currentUser.photos.push(createdPhoto);
+        await currentUser.save()
+        res.redirect('/photos');
+    } catch(er) {
+        res.send(err);
+    }
+});
+
     
     // const user = await User.findById(req.body.usedID)
 

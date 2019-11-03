@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+        <header>
+        </header>
+        <main>
+            <h3><%=article.title%></h3>
+            <form action="/articles/<%=article._id%>?_method=PUT" method="post">
+                <input type="text" name="title" value="<%=article.title%>"/>
+                <br>
+                <br>
+                <input type="text" name="location" value="<%=article.location%>"/>
+                <br>
+                <br>
+                <textarea name="body"><%=article.body%></textarea>
+                <br>
+                <input type="submit" value="Update Article"/>
+            </form>
+        </main>
+    </body>
+</html>

@@ -41,18 +41,36 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res)=>{
     try {
-      const foundUser = await User.findOne({'articles': req.params.id})
-      .populate({path: 'articles', match: {_id: req.params.id}})
-      res.render('articles/show.ejs', {
-        user: foundUser,
-        article: foundUser.articles[0]
+        const foundUser = await User.findOne({'articles': req.params.id})
+        .populate({path: 'articles', match: {_id: req.params.id}});
+        res.render('articles/show.ejs', {
+            user: foundUser,
+            article: foundUser.articles[0],
       })
     } catch(err) {
-      res.send(err)
+        res.send(err)
     }
-  });
+});
 
 
+router.get('/:id/edit', async (req, res)=>{
+    try {
+        const foundArticle = await Article.findById(req.params.id);
+        res.render('articles/edit.ejs', {
+            article: foundArticle,
+        });
+    } catch(err) {
+        res.send(err);
+    }
+});
+router.put('/:id', async (req, res)=>{
+    try {
+        const updatedArticle = await Article.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect('/articles');
+    } catch(err) {
+        res.send(err);
+    }
+});
 
 
 module.exports = router;

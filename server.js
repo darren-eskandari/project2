@@ -34,14 +34,12 @@ app.use('/photos', photosController);
 
 app.get('/login', (req, res) => {
     res.render('login', {
-        isLogged: req.session.logged,
     })
 });
   
 app.get('/signup', (req, res) => {
     res.render('signup', {
         message: req.session.message,
-        isLogged: req.session.logged,
     })
 });
 

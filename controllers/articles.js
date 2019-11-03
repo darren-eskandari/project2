@@ -73,4 +73,17 @@ router.put('/:id', async (req, res)=>{
 });
 
 
+router.delete('/:id', async (req, res)=>{
+    try {
+        const deletedArticle = await Article.findByIdAndRemove(req.params.id)
+        const foundUser = await User.findOne({'articles': req.params.id})
+        foundUser.articles.remove(req.params.id)
+        await foundUser.save()
+        res.redirect('/articles')
+    } catch(err) {
+        res.send(err)
+    }
+});
+
+
 module.exports = router;

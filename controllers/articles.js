@@ -39,6 +39,20 @@ router.post('/', async (req, res) => {
 });
 
 
+router.get('/:id', async (req, res)=>{
+    try {
+      const foundUser = await User.findOne({'articles': req.params.id})
+      .populate({path: 'articles', match: {_id: req.params.id}})
+      res.render('articles/show.ejs', {
+        user: foundUser,
+        article: foundUser.articles[0]
+      })
+    } catch(err) {
+      res.send(err)
+    }
+  });
+
+
 
 
 module.exports = router;

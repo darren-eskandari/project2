@@ -20,11 +20,15 @@
           </div>
         <% } %>
       </section>
-      <a href="/photos/new">new photos</a>
-    </main>
+      <% if(isLogged) { %>
+        <a href="/photos/new">new photos</a>
+      <% } %>
+      </main>
     
     <aside>
-      my photos
+        <% if(isLogged) { %>
+          my photos
+        <% } %>
     </aside>
   </body>
 </html>

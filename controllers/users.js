@@ -18,13 +18,13 @@ router.post('/registration', async (req, res) => {
         req.session.message = '';
         req.session.username = createdUser.username;
         req.session.userId = createdUser._id;
-        req.session.logged = true;;
+        req.session.logged = true;
 
         res.redirect('/')
     } catch(err) {
         req.session.message = 'Username already in use. Please select another.';
         res.redirect('/');
-        res.console.log(err)
+        console.log(err)
     }
 });
 

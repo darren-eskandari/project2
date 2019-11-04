@@ -19,7 +19,9 @@ router.get('/', async (req, res)=>{
 router.get('/new', async (req, res) => {
     try {
         console.log(req.session, req.body);
+        req.session.logged = true;
         res.render('articles/new.ejs', {
+            message: req.session.message,
         });
     } catch(err) {
         res.send(err);
@@ -34,7 +36,8 @@ router.post('/', async (req, res) => {
         res.redirect('/articles');
     } catch(err) {
         console.log(err);
-        // res.send(err);
+        req.session.message = 'You must be logged in to perform this action';
+        res.redirect('/');
     }
 });
 
@@ -46,7 +49,7 @@ router.get('/:id', async (req, res)=>{
         res.render('articles/show.ejs', {
             user: foundUser,
             article: foundUser.articles[0],
-      })
+      });
     } catch(err) {
         res.send(err)
     }
@@ -75,13 +78,13 @@ router.put('/:id', async (req, res)=>{
 
 router.delete('/:id', async (req, res)=>{
     try {
-        const deletedArticle = await Article.findByIdAndRemove(req.params.id)
-        const foundUser = await User.findOne({'articles': req.params.id})
-        foundUser.articles.remove(req.params.id)
-        await foundUser.save()
-        res.redirect('/articles')
+        const deletedArticle = await Article.findByIdAndRemove(req.params.id);
+        const foundUser = await User.findOne({'articles': req.params.id});
+        foundUser.articles.remove(req.params.id);
+        await foundUser.save();
+        res.redirect('/articles');
     } catch(err) {
-        res.send(err)
+        res.send(err);
     }
 });
 

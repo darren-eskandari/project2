@@ -21,12 +21,13 @@
                 <%=article.body%>
             </section>
             <section>
-                <a href="/articles/<%=article._id%>/edit">Edit</a>
-            </section>
-            <section>
-                <form action="/articles/<%=article._id%>?_method=DELETE" method="post">
-                    <input type="submit" value="Delete Article"/>
-                </form>
+                <% if(user.username === username) { %>
+                    <a href="/articles/<%=article._id%>/edit">Edit</a>
+                    <br>
+                    <form action="/articles/<%=article._id%>?_method=DELETE" method="post">
+                        <input type="submit" value="Delete Article"/>
+                    </form>
+                <% } %>    
             </section>
         </main>
         <aside>

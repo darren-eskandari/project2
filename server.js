@@ -40,7 +40,7 @@ app.get('/login', (req, res) => {
 app.get('/signup', (req, res) => {
     res.render('signup', {
         message: req.session.message,
-    })
+    });
 });
 
 app.get('/',(req, res) => {

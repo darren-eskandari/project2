@@ -53,7 +53,26 @@ router.get('/:id', async (req, res)=>{
         res.send(err)
     }
 });
-    
+
+
+router.get('/:id/edit', async (req, res)=>{
+    try {
+        const foundPhoto = await Photo.findById(req.params.id);
+        res.render('photos/edit.ejs', {
+            photo: foundPhoto,
+        });
+    } catch(err) {
+        res.send(err);
+    }
+});
+router.put('/:id', async (req, res)=>{
+    try {
+        const updatedPhoto = await Photo.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect('/photos');
+    } catch(err) {
+        res.send(err);
+    }
+});
 
 
     // const user = await User.findById(req.body.usedID)

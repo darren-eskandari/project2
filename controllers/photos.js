@@ -3,6 +3,7 @@ const router = express.Router();
 const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
 
+
 router.get('/', async (req, res)=>{
     try {
         const foundPhotos = await Photo.find({})
@@ -16,6 +17,7 @@ router.get('/', async (req, res)=>{
     }
 });
      
+
 router.get('/new', async (req, res) => {
     try {
         console.log(req.session, req.body);
@@ -38,7 +40,22 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+router.get('/:id', async (req, res)=>{
+    try {
+        const foundUser = await User.findOne({'photos': req.params.id})
+        .populate({path: 'photos', match: {_id: req.params.id}});
+        res.render('photos/show.ejs', {
+            user: foundUser,
+            photo: foundUser.photos[0],
+      });
+    } catch(err) {
+        res.send(err)
+    }
+});
     
+
+
     // const user = await User.findById(req.body.usedID)
 
 module.exports = router;

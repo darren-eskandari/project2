@@ -9,8 +9,6 @@ router.get('/', async (req, res)=>{
         const foundPhotos = await Photo.find({})
         res.render('photos/index', {
             photos: foundPhotos,
-            isLogged: req.session.logged,
-            username: req.session.username,
         });
     } catch(err) {
         res.send(err);
@@ -21,9 +19,7 @@ router.get('/', async (req, res)=>{
 router.get('/new', async (req, res) => {
     try {
         console.log(req.session, req.body);
-        res.render('photos/new.ejs', {
-            isLogged: req.session.logged,
-        });
+        res.render('photos/new.ejs');
     } catch(err) {
         res.send(err);
     }

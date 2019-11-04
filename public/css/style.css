@@ -1,6 +1,6 @@
 body {
     background-color: lightblue;
-    margin: 6rem 0 0 0;
+    margin: 5rem 0 0 0;
     height: 77rem;
 }
   
@@ -16,7 +16,6 @@ body {
     max-width: 75%;
     margin: 0 auto;
     display: flex;
-    padding: 15px;
     align-items: center;
 }
   

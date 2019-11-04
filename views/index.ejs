@@ -7,29 +7,28 @@
   <body>
   <%- include('./partials/navbar.ejs') %>
     <header>
-      <h1>Travel Blog</h1>
-
       <%= message %>
-
     </header>
 
     <main>
-      <article>
-        <h2>Main Article</h2>
-      </article>
-      <article>
-        <h4>Article</h4>
-      </article>
-      <article>
-        <h4>Article</h4>
-      </article>
-      <article>
-        <h4>Article</h4>
-      </article>
+      <section>
+        <article class="featured">
+            <a href="/articles/<%=articles[0]._id%>"><%=articles[0].title%></a>
+        </article>
+        <% for(let i = 1; i <= 3; i++){ %>
+          <article class="preview">
+            <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
+          </article>
+        <% } %>
+      </section>
+      <section>
+        recent photos:
+        <% for(let i = 0; i < photos.length; i++){ %>
+          <article class="preview">
+              <img src="<%=photos[i].img%>" />
+          </article>
+        <% } %>
+      </section>
     </main>
-
-    <aside>
-      more articles
-    </aside>
   </body>
 </html>

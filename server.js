@@ -7,6 +7,9 @@ const usersController    = require('./controllers/users');
 const articlesController = require('./controllers/articles');
 const photosController   = require('./controllers/photos');
 
+const Article   = require('./models/articles');
+const Photo     = require('./models/photos');
+
 require('./db/db');
 
 app.use(session({
@@ -43,11 +46,19 @@ app.get('/signup', (req, res) => {
     });
 });
 
-app.get('/',(req, res) => {
-    res.render('index', {
-        message: req.session.message,
-        logOut: req.session.logOutMsg,
-    });
+app.get('/', async (req, res) => {
+    try{
+        const foundPhotos = await Photo.find({});
+        const foundArticles = await Article.find({});
+        res.render('index', {
+            message: req.session.message,
+            logOut: req.session.logOutMsg,
+            photos: foundPhotos,
+            articles: foundArticles,
+        });
+    } catch(err) {
+        res.send(err)
+    }
 });
 
 app.listen(3000, () => {

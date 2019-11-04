@@ -7,16 +7,20 @@
         </div>
         <div class="nav-center"></div>
         <div class="nav-right">
-                <% if(isLogged) { %>
-                    <span>hello <%=username%></span>
-                    <a href="/auth/logout" class="nav-link">logout</a>
-                  <% } else {%> 
-                    <a href="/signup" class="nav-link">signup</a>
-                    <a href="/login" class="nav-link">login</a>
-                  <% } %>
-                  <br>
             <a href="/articles" class="nav-link">Articles</a>
             <a href="/photos" class="nav-link">Photos</a>
+                <% if(isLogged) { %>
+                    <div class="login">
+                        <a href="#" id="greeting" class="nav-link">Hello <%=username%></a>
+                        <a href="/auth/logout" class="nav-link">logout</a>
+                    </div>
+                <% } else {%> 
+                    <div class="login">                    
+                        <a href="/signup" class="nav-link">signup</a>
+                        <a href="/login" class="nav-link">login</a>
+                    </div>
+                <% } %>
+ 
             <div class="hamburger-menu">
                     <div class="bar"></div>
                     <div class="bar"></div>
@@ -28,6 +32,15 @@
         <div class="overlay-content">
             <a href="/articles" class="overlay-link">Articles</a>
             <a href="/photos" class="overlay-link">Photos</a>
+            <div class="overlay-login">
+                <% if(isLogged) { %>
+                    <a href="/auth/logout" class="overlay-link">Logout</a>
+                <% } else {%>                    
+                    <a href="/signup" class="overlay-link">Signup</a>
+                    <br>
+                    <a href="/login" class="overlay-link">Login</a>
+                <% } %>
+            </div>
         </div>
     </div>
     <script>

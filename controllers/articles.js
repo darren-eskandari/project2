@@ -7,7 +7,7 @@ const User   = require('../models/users');
 router.get('/', async (req, res)=>{
     try {
         const foundArticles = await Article.find({})
-        res.render('Articles/index', {
+        res.render('articles/index', {
             articles: foundArticles,
         });
     } catch(err) {

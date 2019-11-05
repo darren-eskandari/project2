@@ -10,17 +10,19 @@
         
         </header>
 
-        <main>
-            <section>
-                <img src="<%=photo.img%>">
-            </section>
-            <small>
-                <p><%=photo.caption%></p>
-                by: <%=user.username%>
+        <main class="container">
+            <div class="show">
+                Location: <%=photo.location%>
                 <br>
-                location: <%=photo.location%> 
-            </small>
-            <section>
+                <img src="<%=photo.img%>">
+                <br>
+                <small>
+                    Photographer: <%=user.username%>
+                    <br>
+                    <%=photo.caption%>
+                </small>
+            </div>
+            <div class="edit">
                 <% if(user.username === username) { %>
                     <a class="button" href="/photos/<%=photo._id%>/edit">Edit</a>
                     <br>
@@ -28,7 +30,7 @@
                         <input type="submit" value="Delete photo"/>
                     </form>
                 <% } %>    
-            </section>
+            </div>
         </main>
     </body>
 </html>

@@ -27,9 +27,13 @@
       </section>
       <section class="photo-container">
         <% for(let i = 0; i < photos.length; i++){ %>
-          <div class="preview">
-              <img src="<%=photos[i].img%>" />
-          </div>
+          <% if(i <3) { %>
+            <div class="preview">
+              <a href="/photos/<%=photos[i]._id%>">
+                <img src="<%=photos[i].img%>" />
+              </a>
+            </div>
+          <% } %>
         <% } %>
       </section>
     </main>

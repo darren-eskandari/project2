@@ -151,5 +151,39 @@ body {
     .nav-right > .login {
       display: none;
     }
-
 }
+/* 
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(200px, auto);
+    background-color: black;
+    opacity: 30%;   
+}
+
+.article-container {
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+    background-color: red;
+    opacity: 30%;   
+}
+
+.featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    background-color: purple;
+    opacity: 30%;  
+}
+
+.preview1 div {
+    grid-column: 1 / 2;
+    grid-row: 3 /4;
+}
+
+.photo-container {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    background-color: green;
+    opacity: 30%;   
+} */

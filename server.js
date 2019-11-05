@@ -10,7 +10,11 @@ const photosController   = require('./controllers/photos');
 const Article   = require('./models/articles');
 const Photo     = require('./models/photos');
 
+require('dotenv').config()
+
 require('./db/db');
+
+const PORT = process.env.PORT
 
 app.use(session({
     secret: "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
@@ -61,6 +65,6 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('listening on port 3000');
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
 });

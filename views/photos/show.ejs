@@ -22,16 +22,13 @@
             </small>
             <section>
                 <% if(user.username === username) { %>
-                    <a href="/photos/<%=photo._id%>/edit">Edit</a>
+                    <a class="button" href="/photos/<%=photo._id%>/edit">Edit</a>
                     <br>
-                    <form action="/photos/<%=photo._id%>?_method=DELETE" method="post">
+                    <form class="button" action="/photos/<%=photo._id%>?_method=DELETE" method="post">
                         <input type="submit" value="Delete photo"/>
                     </form>
                 <% } %>    
             </section>
         </main>
-        <aside>
-            my photos  
-        </aside>
     </body>
 </html>

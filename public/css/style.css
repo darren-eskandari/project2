@@ -183,6 +183,13 @@ img {
     justify-content: center;
 }
 
+.article-previews {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 3px;
+}
+
 .photo-container {
     height: 200px;
     display: inline-flex;
@@ -196,6 +203,7 @@ img {
 .preview {
     padding: 3px;
     display: inline-flex;
+
 }
 
 .gallery {

@@ -13,18 +13,20 @@
     <main class="container">
       
       <section class="article-container">
-        <% if(articles.length > 0) { %>
-          <div class="featured">
-            <a href="/articles/<%=articles[0]._id%>"><%=articles[0].title%></a>
-          </div>
-          <% for(let i = 1; i < articles.length; i++){ %>
-            <% if(i <=3) { %>
+        
+        <div class="featured">
+            <a class="add-button" href="/articles">MORE ARTICLES</a>
+        </div>
+        <div class="article-previews">
+          <% for(let i = 0; i < articles.length; i++){ %>
+            <% if(i < 3) { %>
               <div class="preview">
                 <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
               </div>  
+              <% } %>
             <% } %>
-          <% } %>
-        <% } %>
+        
+        </div>
       </section>
 
       <a class="add-button" href="/photos">PHOTO GALLERY</a>

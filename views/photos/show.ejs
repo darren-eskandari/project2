@@ -16,9 +16,11 @@
                 <img src="<%=photo.img%>">
                 <div class="photo-footer">
                     <div class="photo-text">
-                        Photographer: <%=user.username%>
-                        <br>
-                        <%=photo.caption%>
+                        <small>
+                            Photographer: <%=user.username%>
+                            <br>
+                            <%=photo.caption%>
+                        </small>
                     </div>
                     <div class="edit">
                         <% if(user.username === username) { %>

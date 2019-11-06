@@ -5,27 +5,23 @@
     <title>Articles</title>
   </head>
   <body>
+
     <%- include('../partials/navbar.ejs') %>
-    <header>
-      <h1>Articles</h1>
-     
-    </header>
 
-    <main>
+    <main class="container">
 
-      <section>
-
-        <ul>
-          <% for(let i = 0; i < articles.length; i++){ %>
-            <li>
-              <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
-            </li>
-          <% } %>
-        </ul>
-      </section>
       <% if(isLogged) { %>
-        <a href="/articles/new">new article</a>
+        <a class="add-button" href="/articles/new">New Article</a>
       <% } %>
+
+      <ul class="article-list">
+        <% for(let i = 0; i < articles.length; i++){ %>
+          <li class="article-link">
+            <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
+          </li>
+        <% } %>
+      </ul>
+
     </main>
   </body>
 </html>

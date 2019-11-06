@@ -5,19 +5,23 @@
     <title>Photos</title>
   </head>
   <body>
+
     <%- include('../partials/navbar.ejs') %>
+   
     <main class="container">
+
       <% if(isLogged) { %>
         <a class="add-button" href="/photos/new">Add Photo</a>
       <% } %>
 
-    <section class="gallery">
-      <% for(let i = 0; i < photos.length; i++){ %>
-        <div class="img-index">
-          <a href="/photos/<%=photos[i]._id%>"><img src="<%=photos[i].img%>" /></a>
-        </div>
-      <% } %>
-    </section>
+      <section class="gallery">
+        <% for(let i = 0; i < photos.length; i++){ %>
+          <div class="img-index">
+            <a href="/photos/<%=photos[i]._id%>"><img src="<%=photos[i].img%>" /></a>
+          </div>
+        <% } %>
+      </section>
+
     </main>
   </body>
 </html>

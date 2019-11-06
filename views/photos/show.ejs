@@ -12,24 +12,25 @@
 
         <main class="container">
             <div class="show">
-                Location: <%=photo.location%>
-                <br>
+                <div class="photo-text">Location: <%=photo.location%></div>
                 <img src="<%=photo.img%>">
-                <br>
-                <small>
-                    Photographer: <%=user.username%>
-                    <br>
-                    <%=photo.caption%>
-                </small>
-            </div>
-            <div class="edit">
-                <% if(user.username === username) { %>
-                    <a class="button" href="/photos/<%=photo._id%>/edit">Edit</a>
-                    <br>
-                    <form class="button" action="/photos/<%=photo._id%>?_method=DELETE" method="post">
-                        <input type="submit" value="Delete photo"/>
-                    </form>
-                <% } %>    
+                <div class="photo-footer">
+                    <div class="photo-text">
+                        Photographer: <%=user.username%>
+                        <br>
+                        <%=photo.caption%>
+                    </div>
+                    <div class="edit">
+                        <% if(user.username === username) { %>
+                            <a class="button" href="/photos/<%=photo._id%>/edit">Edit</a>
+                            <br>
+                            <form class="button" action="/photos/<%=photo._id%>?_method=DELETE" method="post">
+                                <input type="submit" value="Delete photo"/>
+                            </form>
+                        <% } %>    
+                    </div>
+                </div>
+                
             </div>
         </main>
     </body>

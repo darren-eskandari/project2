@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: lightgrey;
     margin: 5rem 0 0 0;
     height: 45rem;
 }
@@ -157,8 +157,8 @@ a {
 }
 
 img {
-    height: 400px;
-    width: auto;
+    max-width: 600px;
+    max-height: 600px;
 }
 
 .container {
@@ -216,6 +216,25 @@ img {
 .button {
     border: none;
     background: none;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.photo-text {
+    display: flex;
+    align-self: flex-start;
+    margin-left: 15%;
 }
 
 .edit {

@@ -9,6 +9,8 @@ const photosController   = require('./controllers/photos');
 
 const Article   = require('./models/articles');
 const Photo     = require('./models/photos');
+const User      = require('./models/users');
+
 
 require('dotenv').config()
 
@@ -54,11 +56,13 @@ app.get('/', async (req, res) => {
     try{
         const foundPhotos = await Photo.find({});
         const foundArticles = await Article.find({});
+        const foundUser = await User.findOne({'/articles': req.params.id})
         res.render('index', {
             message: req.session.message,
             logOut: req.session.logOutMsg,
             photos: foundPhotos,
             articles: foundArticles,
+            user: foundUser,
         });
     } catch(err) {
         res.send(err)

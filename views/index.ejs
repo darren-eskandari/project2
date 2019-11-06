@@ -24,7 +24,11 @@
             <% if(i < 3) { %>
               <div class="preview">
                 <a href="/articles/<%=articles[i]._id%>">
-                  <%=articles[i].title%>
+                  <span class="headline">
+                    <%=articles[i].title%>
+                    -
+                    <%=user.username%>
+                  </span>
                   <hr>
                   <p>
                     <small>

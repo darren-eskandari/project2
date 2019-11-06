@@ -171,7 +171,7 @@ img {
 }
 
 .article-container {
-    height: 520px;
+    height: 575px;
 }
 
 .featured {
@@ -190,6 +190,14 @@ img {
     padding-top: 3px;
 }
 
+.index-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 11.5%;
+    margin-right: 11.5%;
+    padding: 2px;
+}
+
 .photo-container {
     height: 200px;
     display: inline-flex;
@@ -201,9 +209,26 @@ img {
 }
 
 .preview {
+    display: flex;
+    justify-content: center;
     padding: 3px;
-    display: inline-flex;
+    margin-top: 3px;
+    width: 225px;
+    height: 150px;
+    background-color: white;
+    border: 2px solid dimgray;
+    opacity: .8;
+    overflow: auto;
+    clear: both;
+}
 
+.preview:hover {
+    opacity: .95;
+}
+
+hr {
+    color: dimgray;
+    width: 200px;
 }
 
 .gallery {

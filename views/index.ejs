@@ -13,23 +13,34 @@
     <main class="container">
       
       <section class="article-container">
-        
         <div class="featured">
-            <a class="add-button" href="/articles">MORE ARTICLES</a>
+          <div class="welcome">
+            Inspire Curiosity
+          </div>
         </div>
+
         <div class="article-previews">
           <% for(let i = 0; i < articles.length; i++){ %>
             <% if(i < 3) { %>
               <div class="preview">
-                <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
+                <a href="/articles/<%=articles[i]._id%>">
+                  <%=articles[i].title%>
+                  <hr>
+                  <p>
+                    <small>
+                      <%=articles[i].body%>
+                    </small>
+                  </p>
+                </a>
               </div>  
-              <% } %>
             <% } %>
-        
+          <% } %>
         </div>
       </section>
-
-      <a class="add-button" href="/photos">PHOTO GALLERY</a>
+      <div class="index-nav">
+        <a href="/articles">MORE ARTICLES</a>
+        <a href="/photos">PHOTO GALLERY</a>
+      </div>  
       <section class="photo-container">
         <% for(let i = 0; i < photos.length; i++){ %>
           <% if(i <3) { %>

@@ -8,18 +8,20 @@
         <%- include('../partials/navbar.ejs') %>
         <header>
         </header>
-        <main>
-            <form action="/photos/<%=photo._id%>?_method=PUT" method="post">
-                <input type="text" name="img" value="<%=photo.img%>"/>
-                <br>
-                <br>
-                <input type="text" name="location" value="<%=photo.location%>"/>
-                <br>
-                <br>
-                <input type="text" name="caption" value="<%=photo.caption%>"/>
-                <br>
-                <input type="submit" value="Update Photo"/>
-            </form>
+        <main class="container">
+            <div class="author">
+                <form action="/photos/<%=photo._id%>?_method=PUT" method="post">
+                    <input type="text" name="img" value="<%=photo.img%>"/>
+                    <br>
+                    <br>
+                    <input type="text" name="location" value="<%=photo.location%>"/>
+                    <br>
+                    <br>
+                    <textarea type="text" name="caption" value="<%=photo.caption%>"></textarea>
+                    <br>
+                    <input type="submit" value="Update Photo"/>
+                </form>
+            </div>
         </main>
     </body>
 </html>

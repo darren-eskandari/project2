@@ -8,19 +8,22 @@
         <%- include('../partials/navbar.ejs') %>
         <header>
         </header>
-        <main>
-            <h3><%=article.title%></h3>
-            <form action="/articles/<%=article._id%>?_method=PUT" method="post">
-                <input type="text" name="title" value="<%=article.title%>"/>
-                <br>
-                <br>
-                <input type="text" name="location" value="<%=article.location%>"/>
-                <br>
-                <br>
-                <textarea name="body"><%=article.body%></textarea>
-                <br>
-                <input type="submit" value="Update Article"/>
-            </form>
+        <main class="container">
+            <div class="author">
+
+                <h3><%=article.title%></h3>
+                <form action="/articles/<%=article._id%>?_method=PUT" method="post">
+                    <input type="text" name="title" value="<%=article.title%>"/>
+                    <br>
+                    <br>
+                    <input type="text" name="location" value="<%=article.location%>"/>
+                    <br>
+                    <br>
+                    <textarea name="body" cols="60" rows="10"><%=article.body%></textarea>
+                    <br>
+                    <input type="submit" value="Update Article"/>
+                </form>
+            </div>
         </main>
     </body>
 </html>

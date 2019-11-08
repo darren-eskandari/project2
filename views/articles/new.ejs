@@ -7,18 +7,17 @@
   <body>
     <%- include('../partials/navbar.ejs') %>
     <header>
-      <h1>Articles</h1>
-
     </header>
-
-    <%= message %>
-    <main>
+    <main class="container">
+      <div class="author">
+        <h3>New Article</h3>
         <form action="/articles" method="POST">
           <input type="text" name="title" placeholder="Title"/><br><br>
           <input type="text" name="location" placeholder="Location"/><br><br>
-          <textarea name="body"/></textarea><br>
+          <textarea name="body" cols="60" rows="10"></textarea><br>
           <button type="submit">Create Article</button>
         </form>
+      </div>
     </main>
   </body>
 </html>

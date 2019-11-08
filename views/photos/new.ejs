@@ -7,21 +7,22 @@
   <body>
     <%- include('../partials/navbar.ejs') %>
     <header>
-      <h1>Photos</h1>
-
     </header>
-    <main>
-      <form action="/photos" method="POST">
-        <input type="text" name="img" placeholder="URL"/>
-        <br>
-        <br>
-        <input type="text" name="location" placeholder="Location"/>
-        <br>
-        <br>
-        <input type="text" name="caption" placeholder="caption"/>
-        <br>
-        <button type="submit">Create Article</button>
-      </form>
+    <main class="container">
+      <div class="author">
+        <h3>New Photo</h3>
+        <form action="/photos" method="POST">
+          <input type="text" name="img" placeholder="URL"/>
+          <br>
+          <br>
+          <input type="text" name="location" placeholder="Location"/>
+          <br>
+          <br>
+          <textarea type="text" name="caption" placeholder="caption"></textarea>
+          <br>
+          <button type="submit">Create Article</button>
+        </form>
+      </div>
     </main>
   </body>
 </html>

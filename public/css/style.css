@@ -392,6 +392,12 @@ hr {
    text-align: justify;
    padding-bottom: 10px;
 }
+.author {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
 
 .modal-bg {
     position: fixed;

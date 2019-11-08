@@ -2,28 +2,33 @@
         <title>WANDRLST</title>
 </head>
 <%- include('./partials/navbar.ejs') %>
-<h4>Registration</h4>
-<form action="/auth/registration" method="POST">
-    * Required *
-    <br>
-    <input type="text" name="username" placeholder="username">
-    <br>
-    <input type="email" name="email" placeholder="email">
-    <br>
-    <input type="password" name="password" placeholder="password">
-    <br>
-    <br>
-    ==================
-    <br>
-    <br>
-    Name:
-    <br> 
-    <input type="text" name="firstName" placeholder="first">
-    <input type="text" name="lastName" placeholder="last">
-    <br>
-    Date of Birth: <input type="date" name="dob" />
-    <br>
-    Location: <input type="text" name="location" />
-    <br>
-    <button type="submit">Register</button>
-</form>
+<div class="modal-bg">
+    <div class="modal">
+        <h4>Registration</h4>
+        <form action="/auth/registration" method="POST">
+            * Required *
+            <br>
+            <input type="text" name="username" placeholder="username">
+            <br>
+            <input type="email" name="email" placeholder="email">
+            <br>
+            <input type="password" name="password" placeholder="password">
+            <br>
+            <br>
+            ==================
+            <br>
+            <br>
+            Name:
+            <br> 
+            <input type="text" name="firstName" placeholder="first">
+            <input type="text" name="lastName" placeholder="last">
+            <br>
+            Date of Birth: <input type="date" name="dob" />
+            <br>
+            Location: <input type="text" name="location" />
+            <br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+

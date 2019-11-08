@@ -2,12 +2,18 @@
     <title>WANDRLST</title>
 </head>
 <%- include('./partials/navbar.ejs') %>
-<h4>Login</h4>
-<form action="/auth/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <br>
-    <input type="password" name="password" placeholder="password">
-    <br>
-    <button type="submit">Login</button>
-</form>
+
+<div class="modal-bg">
+    <div class="modal login-modal">
+        <h4>Login</h4>
+        <form action="/auth/login" method="POST">
+            <input type="text" name="username" placeholder="username">
+            <br>
+            <input type="password" name="password" placeholder="password">
+            <br>
+            <button type="submit">Login</button>
+        </form>        
+    </div>
+</div>
+
 

@@ -343,6 +343,10 @@ hr {
     flex-wrap: nowrap;
 }
 
+.article-link {
+    padding-bottom: 5px;
+}
+
 .article-show {
     display: flex;
     margin: 0 11.5%;

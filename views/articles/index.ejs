@@ -13,14 +13,36 @@
       <% if(isLogged) { %>
         <a class="add-button" href="/articles/new">NEW ARTICLE</a>
       <% } %>
+      
+      <div class="articles-index">  
 
-      <ul class="article-list">
-        <% for(let i = 0; i < articles.length; i++){ %>
-          <li class="article-link">
-            <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
-          </li>
-        <% } %>
-      </ul>
+        <div class="article-views-list">
+          <% for(let i = 0; i < articles.length; i++){ %>
+            <div class="article-views">
+              <a href="/articles/<%=articles[i]._id%>">
+                <span class="headline">
+                  <div class="title"><%=articles[i].title%></div>
+                  <div class="author"><small>By: <%=user.username%></small></div>
+                </span>
+                <p class="body">
+                  <%=articles[i].body%>
+                </p>
+              </a>
+            </div>
+          <% } %>
+        </div>
+
+        <div class="article-aside">
+          <ul class="article-list">
+            <% for(let i = 0; i < articles.length; i++){ %>
+              <li class="article-link">
+                <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+
+      </div>
 
     </main>  
   </body>

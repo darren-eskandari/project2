@@ -7,8 +7,10 @@ const User   = require('../models/users');
 router.get('/', async (req, res)=>{
     try {
         const foundArticles = await Article.find({})
+        const foundUser = await User.findOne({'/articles': req.params.id})
         res.render('articles/index', {
             articles: foundArticles,
+            user: foundUser,
         });
     } catch(err) {
         res.send(err);

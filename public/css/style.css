@@ -225,15 +225,15 @@ img {
     margin-top: 3px;
     width: 225px;
     height: 150px;
-    background-color: white;
+    background: rgba(255, 255, 255, .6);
     border: 2px solid dimgray;
-    opacity: .8;
     overflow: auto;
     clear: both;
 }
 
 .preview:hover {
     opacity: .95;
+    background: white;
 }
 
 hr {
@@ -291,3 +291,52 @@ hr {
     padding: 0 10px;
     align-self: flex-end;
 }
+
+.articles-index{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 11.5%;
+}
+
+.article-views-list {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.article-views {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, .4);
+    border: solid rgba(0, 0, 0, 0.65);
+    border-width: thin;
+    padding: 4px;   
+    margin: 4px;
+    height: 5rem;
+    overflow: auto;
+    clear: both;
+}
+
+.headline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid darkgray;
+    border-width: thin;
+    padding: 2px;
+}
+
+.author {
+    margin-right: 15%;
+}
+
+.article-aside {
+    padding: 2px 23px 2px 0;
+}
+
+.article-list {
+    list-style-type: none;
+    flex-wrap: nowrap;
+}
+

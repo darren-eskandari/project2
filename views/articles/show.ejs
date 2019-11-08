@@ -10,25 +10,44 @@
         
         </header>
 
-        <main>
-            <h2><%=article.title%></h2>
-            <small>
-                by: <%=user.username%>
-                <br>
-                location: <%=article.location%> 
-            </small>
-            <section>
-                <%=article.body%>
-            </section>
-            <section>
+        <main class="article-show">
+            
+            <div class="article-title">
+                <div class="title-left">
+                </div>
+                <div class="title-center">
+                    <%=article.title%>
+                </div>
+                <div class="title-right"> 
+                    <small>
+                        By: <%=user.username%>
+                    </small>
+                </div>
+            </div>
+            
+            <div class="article-info">
+                <div>
+                    Location: <%=article.location%> 
+                </div>
                 <% if(user.username === username) { %>
-                    <a href="/articles/<%=article._id%>/edit">Edit</a>
-                    <br>
+                    <div>
+                        <a href="/articles/<%=article._id%>/edit">Edit</a>
+                    </div>
+                <% } %>  
+            </div>
+
+            <div class="article-body">
+                <%=article.body%>
+            </div>
+
+            <div class="delete-article">  
+                <% if(user.username === username) { %>
                     <form action="/articles/<%=article._id%>?_method=DELETE" method="post">
                         <input type="submit" value="Delete Article"/>
                     </form>
                 <% } %>    
-            </section>
+            </div>
+
         </main>
     </body>
 </html>

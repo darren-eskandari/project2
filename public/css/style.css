@@ -297,12 +297,14 @@ hr {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 11.5%;
+    height: 1vhm;
 }
 
 .article-views-list {
     display: flex;
     flex-direction: column;
     width: 75%;
+
 }
 
 .article-views {
@@ -332,7 +334,9 @@ hr {
 }
 
 .article-aside {
-    padding: 2px 23px 2px 0;
+    width: 156px;
+    overflow: auto;
+    clear: both;
 }
 
 .article-list {
@@ -340,3 +344,51 @@ hr {
     flex-wrap: nowrap;
 }
 
+.article-show {
+    display: flex;
+    margin: 0 11.5%;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.article-title {
+    display: flex;
+    max-width: 84%;
+    margin: 10px 0 5px 8%;
+    padding-bottom: 5px;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: thin solid rgba(0, 0, 0, 0.65);
+}
+
+.title-left {
+    width: 33.333%;
+    text-align: left;
+    padding: 8px 0 0 15px;
+}
+
+.title-center {
+    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.title-right {
+    width: 33.333%;
+    text-align: right;
+    text-transform: capitalize;
+    padding-top: 7px;
+}
+
+.article-info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+
+.article-body {
+   text-align: justify;
+   padding-bottom: 10px;
+}
